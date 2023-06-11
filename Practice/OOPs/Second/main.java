@@ -29,32 +29,33 @@ public class main {
 
     }
     public static void lib(){
-        Scanner sc = new Scanner(System.in);
-        String name;
-        String author;
-        int year;
-        String response;
+        try (Scanner sc = new Scanner(System.in)) {
+            String name;
+            String author;
+            int year;
+            String response;
 
 
-        System.out.println("Enter book name: ");
-        name = sc.nextLine();
-        System.out.println("Enter book author: ");
-        author = sc.nextLine();
-        System.out.println("Enter year of publication: ");
-        year = sc.nextInt();
+            System.out.println("Enter book name: ");
+            name = sc.nextLine();
+            System.out.println("Enter book author: ");
+            author = sc.nextLine();
+            System.out.println("Enter year of publication: ");
+            year = sc.nextInt();
 
-        Book book = new Book(name, author, year);
+            Book book = new Book(name, author, year);
 
-        System.out.print("Would you like to add a book or remove this book to your library? (A/R) ");
-        response = sc.next().toLowerCase().trim();
-        if (response.equals("a")){
-            Shelf.add(book);
-        } else if (response.equals("r")) {
-            Shelf.remove(book);
-            
-        }
-        else{
-            System.out.println("Invalid Response");
+            System.out.print("Would you like to add a book or remove this book to your library? (A/R) ");
+            response = sc.next().toLowerCase().trim();
+            if (response.equals("a")){
+                Shelf.add(book);
+            } else if (response.equals("r")) {
+                Shelf.remove(book);
+                
+            }
+            else{
+                System.out.println("Invalid Response");
+            }
         }
     }
 
