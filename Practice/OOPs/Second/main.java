@@ -4,26 +4,27 @@ import java.util.*;
 
 public class main {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to Dolla's Library");
-        lib();
-        String resp;
-        System.out.println("Would you like to repeat the process?(Y/N) ");
-        resp = sc.next().toLowerCase().trim();
-        if (resp.equals("y")){
-            int bok;
-            System.out.println("How many books will you be altering now?");
-            bok = sc.nextInt();
-            System.out.println("Well then, application will automatically close after repeating " + bok + " times.");
-            for (int i = 0; i < bok; i++) {
-                lib();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Welcome to Dolla's Library");
+            lib();
+            String resp;
+            System.out.println("Would you like to repeat the process?(Y/N) ");
+            resp = sc.next().toLowerCase().trim();
+            if (resp.equals("y")){
+                int bok;
+                System.out.println("How many books will you be altering now?");
+                bok = sc.nextInt();
+                System.out.println("Well then, application will automatically close after repeating " + bok + " times.");
+                for (int i = 0; i < bok; i++) {
+                    lib();
+                }
+                System.out.println("Thanks for visiting.....have a nice day!");
+            } else if (resp.equals("n")) {
+                System.out.println("Thanks for visiting...have a nice day!");
             }
-            System.out.println("Thanks for visiting.....have a nice day!");
-        } else if (resp.equals("n")) {
-            System.out.println("Thanks for visiting...have a nice day!");
-        }
-        else {
-            System.out.println("Invalid response...exiting...");
+            else {
+                System.out.println("Invalid response...exiting...");
+            }
         }
 
 
